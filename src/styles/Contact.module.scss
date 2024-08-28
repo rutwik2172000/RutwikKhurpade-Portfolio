@@ -1,0 +1,107 @@
+@import "@/styles/mixins.scss";
+
+.contactMain {
+  // Main div for contact page
+  width: 100%;
+  height: 100%;
+  margin-top: 10rem;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  .heading {
+    font-size: 3rem;
+    // breakPoints for heading
+    @include md {
+      place-self: center;
+      font-size: 2rem;
+    }
+  }
+  .formParent {
+    // form parent container
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    .subheading {
+      font-size: 2rem;
+      color: #a993fe;
+      @include md {
+        font-size: 1.5rem;
+      }
+    }
+    .formContainer {
+      // form styles
+      margin: 0 auto;
+      width: 50%;
+      font-size: 1.2rem;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      padding: 2rem;
+      gap: 2rem;
+      border: 2px solid #a993fe;
+      .inputContainer {
+        // div for layouting inputs label and corresponding error messages
+        color: #a993fe;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        & input,
+        & textarea {
+          font-size: 1.2rem;
+          color: #fff;
+          background: transparent;
+          padding: 1rem;
+          outline: none;
+          border-radius: 8px;
+          border: 2px solid #6c5ca9;
+          &:focus {
+            border: 2px solid #a993fe;
+          }
+          &::placeholder {
+            font-size: 1.2rem;
+            color: #777;
+            @include sml {
+              font-size: 1rem;
+            }
+          }
+          @include sml {
+            padding: 0.5rem;
+          }
+        }
+        .errorMessage {
+          color: #c32222;
+        }
+      }
+      .submitBtn {
+        place-self: center;
+        border: 2px solid #a993fe;
+        color: #a993fe;
+        background: transparent;
+        border-radius: 40px;
+        outline: none;
+        font-weight: 800;
+        font-size: 1.2rem;
+        padding: 1rem 2rem;
+        transition: all 300ms ease;
+        &:hover {
+          background: #a993fe;
+          color: #fff;
+        }
+      }
+      // breakpoints for form styles
+      @include md {
+        width: 85%;
+      }
+      @include sml {
+        width: 100%;
+      }
+    }
+  }
+  //   main div breakpoints
+  @include md {
+    margin-top: 7rem;
+    gap: 6rem;
+  }
+}

@@ -1,0 +1,140 @@
+@import "@/styles/mixins.scss";
+.skillsMain {
+  // main skills div
+  color: #eee;
+  margin-top: 10rem;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  gap: 6rem;
+  flex-direction: column;
+  .heading {
+    font-size: 3rem;
+    color: #eee;
+  }
+  @include mdl {
+    // breakpoint for main skills div
+    margin-top: 8rem;
+    align-items: center;
+    gap: 3rem;
+  }
+  .skillsContent {
+    display: flex;
+    align-items: first baseline;
+    justify-content: space-between;
+    // breakpoint for skills content div
+    @include mdl {
+      align-items: center;
+      flex-direction: column;
+      gap: 4rem;
+    }
+    .skills {
+      // skills topic div
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      .skillCard {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        font-size: 2rem;
+        font-weight: 600;
+        width: 20rem;
+        height: 10rem;
+        border-radius: 10px;
+        border: 2px solid #a993fe;
+        padding: 1rem;
+        position: relative;
+        // skillCard (Topic) breakpoints
+        @include lg {
+          width: 11.7rem;
+          height: 7rem;
+          font-size: 1.5rem;
+        }
+        @include md {
+          font-size: 1rem;
+          flex-direction: column;
+          width: 10rem;
+          padding: 0.8rem;
+        }
+        @include sm {
+          font-size: 1rem;
+          flex-direction: column;
+          width: 7.8rem;
+          padding: 0.8rem;
+        }
+        &.activeCard,
+        &:hover {
+          font-weight: 800;
+          background: linear-gradient(90deg, #a893fea3 0%, #7e61e784 100%);
+          backdrop-filter: blur(100px);
+          color: #eee;
+        }
+        .skillIconImage {
+          object-fit: cover;
+        }
+      }
+    }
+    .skillsInfo {
+      // skill info div
+      color: #eee;
+      margin-bottom: 2rem;
+      border: 2px solid #a993fe;
+      border-radius: 8px;
+      padding: 3rem 2rem;
+      font-size: 1.4rem;
+      font-weight: 400;
+      .skillInfoWrapper {
+        display: grid;
+        gap: 2rem;
+        grid-template-columns: repeat(2, 1fr);
+        .eachSkillContainer {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          align-items: center;
+          transition: transform 300ms ease;
+          .eachSkillImageContainer {
+            width: 10rem;
+            height: 8rem;
+            padding: 1rem;
+            display: grid;
+            place-items: center;
+            border: 2px solid #6c5ca9;
+            border-radius: 8px;
+            @include lgl {
+              width: 7rem;
+              height: 6rem;
+            }
+            .skillInfoImage {
+              mix-blend-mode: screen;
+              object-fit: contain;
+            }
+          }
+          &:hover {
+            font-weight: 600;
+            transform: scale(1.1);
+            .eachSkillImageContainer {
+              transition: all 100ms ease;
+              transition-delay: 500ms;
+              border-color: #a993fe;
+            }
+            @include sml {
+              font-weight: 300;
+            }
+          }
+        }
+        @include sml {
+          font-size: 1.2rem;
+          gap: 1rem;
+        }
+      }
+      @include sm {
+        font-size: 1rem;
+        font-weight: 200;
+        padding: 2rem 1.3rem;
+      }
+    }
+  }
+}

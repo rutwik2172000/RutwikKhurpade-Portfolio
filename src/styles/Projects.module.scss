@@ -1,0 +1,109 @@
+@import "@/styles/mixins.scss";
+
+.projectsMain {
+  // main div for the projects page
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  margin-top: 8rem;
+  margin-bottom: 1rem;
+  gap: 4rem;
+  .heading {
+    font-size: 3rem;
+    // breakPoints for heading
+    @include md {
+      place-self: center;
+      font-size: 2rem;
+    }
+  }
+  .projectContainer {
+    width: 100%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3rem;
+    .projectCardContainer {
+      padding: 2rem;
+      width: 60%;
+      .title {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        color: #a993fe;
+        //   breakPoints for title
+        @include md {
+          font-size: 1.5rem;
+        }
+        @include sml {
+          font-size: 1.2rem;
+        }
+      }
+      .cardContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 2px solid #a993fe;
+        border-radius: 10px;
+        // width: 50rem;
+        img {
+          width: 100%;
+          height: 10rem;
+          object-fit: cover;
+          border-radius: 8px 8px 0 0;
+        }
+        .content {
+          display: flex;
+          flex-direction: column;
+          gap: 1.5rem;
+          padding: 2rem;
+          .linksDiv {
+            margin-top: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            .btnContainer {
+              padding: 1rem 0.5rem;
+              display: flex;
+              align-items: center;
+              border-radius: 8px;
+              border: 2px solid #a993fe;
+              gap: 0.5rem;
+              color: #a993fe;
+              transition: all 300ms ease;
+              &:hover {
+                color: #fff;
+                background: #a993fe;
+              }
+            }
+            @include md {
+              //   flex-direction: column;
+            }
+          }
+          p {
+            font-size: 1.2rem;
+            font-weight: 500;
+            @include sm {
+              font-size: 1rem;
+            }
+          }
+        }
+      }
+      @include mdl {
+        width: 80%;
+      }
+      @include md {
+        width: 100%;
+      }
+      @include sml {
+        width: 25rem;
+      }
+      @include sm {
+        width: 21.8rem;
+      }
+    }
+    @include mdl {
+      align-items: center;
+    }
+  }
+}

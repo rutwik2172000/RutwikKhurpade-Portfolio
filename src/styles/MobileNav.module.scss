@@ -1,0 +1,89 @@
+@import "@/styles/mixins.scss";
+.mobileNav {
+  margin-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding: 1.5rem 2rem;
+  border-radius: 0 0 20rem 20rem;
+  width: 52vw;
+  height: 80vh;
+  position: fixed;
+  top: 0;
+  z-index: 9998;
+  left: 0;
+  background-color: #342864;
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: all 500ms ease-in-out;
+  &.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  ul {
+    display: flex;
+    flex-direction: column;
+    //list of all navlinks
+    list-style: none;
+    gap: 3rem;
+    text-decoration: none;
+    li {
+      // styles for all navlinks
+      color: #fff;
+      font-size: 1.5rem;
+      font-weight: 600;
+      position: relative;
+      filter: drop-shadow(0 8px 6px rgba($color: #000, $alpha: 0.3));
+      &::before {
+        // for applying underline animation
+        content: "";
+        position: absolute;
+        bottom: -6px;
+        left: 0;
+        width: 100%;
+        height: 0.2rem;
+        border-radius: 10px;
+        background: linear-gradient(90deg, #a993fe 0%, #7e61e7 100%);
+        transition: all 300ms ease-out;
+        transform: scaleX(0);
+      }
+
+      &.activeLink {
+        color: #a993fe;
+        &::before {
+          transform: scaleX(1);
+        }
+      }
+    }
+  }
+  .resume {
+    // hierme button to download resume
+    border-radius: 4px;
+    padding: 0.4rem 2rem;
+    filter: drop-shadow(0 8px 10px rgba($color: #000, $alpha: 0.4));
+    border: none;
+    background-color: #a993fe;
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 300ms ease-out;
+    @include sm {
+      font-size: 1rem;
+    }
+  }
+  img {
+    filter: drop-shadow(0 8px 6px rgba($color: #000, $alpha: 0.2));
+    transform: translateX(-50%);
+  }
+  @include lg {
+    display: none;
+  }
+  @include md {
+    display: flex;
+  }
+  @include sm {
+    width: 60vw;
+  }
+}

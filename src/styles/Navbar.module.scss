@@ -1,0 +1,103 @@
+@import "@/styles/mixins.scss";
+.navbar {
+  // styles for large screen navbars
+  width: 100svw;
+  height: 6rem;
+  padding: 2rem;
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9998;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba($color: #000, $alpha: 0.2);
+  backdrop-filter: blur(4px);
+  .navLinks {
+    // div to seperate logo and all navlinks
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    ul {
+      display: flex;
+      //list of all navlinks
+      list-style: none;
+      gap: 2rem;
+      text-decoration: none;
+      li {
+        // styles for all navlinks
+        color: #fff;
+        font-size: 1.1rem;
+        font-weight: 600;
+        position: relative;
+        transition: all 400ms ease-out;
+        &::before {
+          // for applying underline animation
+          content: "";
+          position: absolute;
+          bottom: -6px;
+          left: 0;
+          width: 100%;
+          border-radius: 2px;
+          height: 0.2rem;
+          transform: scaleX(0);
+          background: linear-gradient(90deg, #a993fe 0%, #7e61e7 100%);
+          transition: all 300ms ease-out;
+        }
+        &:hover {
+          color: #a993fe;
+        }
+        &:hover::before {
+          transform: scaleX(100%);
+          color: #a993fe;
+        }
+        &.activeLink {
+          color: #a993fe;
+          &::before {
+            transform: scaleX(100%);
+          }
+        }
+      }
+    }
+    .resume {
+      // hierme button to download resume
+      border-radius: 4px;
+      padding: 0.4rem;
+      border: 2px solid #a993fe;
+      color: #a993fe;
+      font-size: 1rem;
+      font-weight: 600;
+      background: transparent;
+      cursor: pointer;
+      transition: all 300ms ease-out;
+      &:hover {
+        background: #a993fe;
+        color: #fff;
+      }
+    }
+    @include md {
+      display: none;
+    }
+  }
+  .burgerMenuDiv {
+    display: none;
+    border: 2px solid #a993fe;
+    padding: 0.5rem;
+    border-radius: 8px;
+    background: transparent;
+    transition: all 300ms ease-out;
+    &:active {
+      background: #a993fe;
+    }
+    &:active > .burgerMenu {
+      fill: #fff;
+    }
+    .burgerMenu {
+      font-size: 1.2rem;
+      fill: #a993fe;
+    }
+    @include md {
+      display: block;
+    }
+  }
+}

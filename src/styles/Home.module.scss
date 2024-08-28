@@ -1,0 +1,178 @@
+@import "@/styles/mixins.scss";
+$textcolor: #fff;
+.homeMain {
+  //hero section
+  margin-top: 19rem;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  @include md {
+    flex-direction: column-reverse;
+    margin-top: 10rem;
+  }
+  div {
+    // hero text div
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    .heading {
+      color: $textcolor;
+      font-size: 4rem;
+      @include sm {
+        font-size: 3rem;
+      }
+    }
+    .subheading {
+      color: $textcolor;
+      font-size: 3rem;
+      @include md {
+        font-size: 2.5rem;
+      }
+      @include sm {
+        font-size: 1.9rem;
+      }
+    }
+    .typed {
+      // typewriter effect styles
+      margin-left: 10px;
+      color: #a993fe;
+      font-weight: 600;
+    }
+    .tagline {
+      line-height: 1.5;
+      margin-top: 1rem;
+      color: $textcolor;
+      font-size: 1.5rem;
+      @include sm {
+        font-size: 1.1rem;
+      }
+    }
+    // breakpoint for hero text div
+    @include md {
+      gap: 3rem;
+    }
+  }
+  .socialsDiv {
+    // social links div
+    margin-bottom: 1rem;
+    width: 25rem;
+    height: 20rem;
+    place-items: center;
+    padding: 1rem;
+    gap: 10px;
+    border: 2px solid #a993fe;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);
+    .socialLinks {
+      padding: 1rem;
+      display: grid;
+      place-items: center;
+      border: 1px solid #a993fe;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+      &:hover,
+      &:hover > .socialIcons {
+        transform: scale(1.3);
+        @include sm {
+          transform: scale(1.1);
+        }
+      }
+      // for background cahnge on hover
+      &:nth-child(1):hover {
+        background: #24292e;
+      }
+      &:nth-child(2):hover {
+        background: #222;
+      }
+      &:nth-child(3):hover {
+        background: #0077b5;
+      }
+      &:nth-child(4):hover {
+        background: linear-gradient(
+          120deg,
+          #8a3ab9 25%,
+          #bc2a8d 50%,
+          #fccc63 75%,
+          #fbad50 100%
+        );
+      }
+      // for svg fill color change on hover
+      &:nth-child(1):hover > .github {
+        fill: #fff;
+      }
+
+      // github
+      .github {
+        fill: #24292e;
+        stroke-width: 2px;
+        stroke: white;
+      }
+      &:nth-child(2):hover > .twitter {
+        fill: #fff;
+      }
+      // twitter
+      .twitter {
+        fill: #fff;
+      }
+      &:nth-child(3):hover > .linkedin {
+        fill: #fff;
+      }
+      // linkedin
+      .linkedin {
+        fill: #0077b5;
+      }
+      &:nth-child(4):hover > .instagram {
+        fill: #fff;
+      }
+      // insta
+      .instagram {
+        fill: #bc2a8d;
+      }
+    }
+    // social div break pooints
+    @include lg {
+      transform: translateY(-20%);
+      width: 20rem;
+      height: 20rem;
+    }
+    @include md {
+      width: 100%;
+      height: 10rem;
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  // breakpoint for home page
+
+  // Glowy bubbles
+  &::before,
+  &::after {
+    content: "";
+    width: 30rem;
+    height: 30rem;
+    opacity: 0.5;
+    border-radius: 50%;
+    position: absolute;
+    z-index: -1;
+    filter: blur(200px);
+    @include lg {
+      width: 20rem;
+      height: 20rem;
+    }
+    @include md {
+      width: 15rem;
+      height: 15rem;
+      opacity: 0.5;
+    }
+  }
+  &::before {
+    background-color: #7e61e7;
+    top: 5rem;
+    left: 2rem;
+  }
+  &::after {
+    background-color: #7e61e7;
+    bottom: 5rem;
+    right: 2rem;
+  }
+}

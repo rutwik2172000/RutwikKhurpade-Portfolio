@@ -1,0 +1,71 @@
+@import "@/styles/mixins.scss";
+$darkbg: #060417;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  // styles for each page
+  background-color: $darkbg;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 0 4rem;
+  // breakpoints for each page
+  @include lg {
+    padding: 0 3rem;
+  }
+  @include md {
+    padding: 0 2rem;
+  }
+  @include sm {
+    padding: 0 1rem;
+  }
+  .slideIn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #000;
+    transform-origin: bottom;
+    z-index: 9999;
+  }
+  .slideOut {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #000;
+    transform-origin: top;
+    z-index: 9999;
+  }
+  // scrollbar
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+  &::-webkit-scrollbar-track {
+    margin: 20vh 0;
+    box-shadow: inset 0 0 5px #333;
+    border: 1px solid #a993fe;
+    border-radius: 10px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #8873dc;
+    border-radius: 10px;
+    height: 1rem;
+    &:hover {
+      background: #a993fe;
+    }
+  }
+}
+
+// to siable default styling for link tags
+a {
+  background: inherit;
+  text-decoration: none;
+}
